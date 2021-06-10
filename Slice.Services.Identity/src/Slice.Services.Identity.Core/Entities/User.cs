@@ -44,6 +44,7 @@ namespace Slice.Services.Identity.Core.Entities
             Email = email;
             Password = password;
             Role = role;
+            CreatedAt = createAt;
             Permissions = permissions ?? Enumerable.Empty<string>();
         }
     }
