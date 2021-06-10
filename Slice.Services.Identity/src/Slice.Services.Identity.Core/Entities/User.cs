@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Slice.Services.Identity.Core.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Slice.Services.Identity.Core.Entities
 {
-    public class User
+    public class User : AggregateRoot
     {
         public string UserName { get; set; }
 
@@ -27,16 +28,16 @@ namespace Slice.Services.Identity.Core.Entities
             IEnumerable<string> permissions = null)
         {
             if (string.IsNullOrWhiteSpace(userName))
-                throw new ArgumentNullException(nameof(userName));
+                throw new InvalidUserNameException(nameof(userName));
 
             if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentNullException(nameof(email));
+                throw new InvalidEmailException(nameof(email));
 
             if (string.IsNullOrWhiteSpace(password))
-                throw new ArgumentNullException(nameof(password));
+                throw new InvalidPasswordException(nameof(password));
 
             if (string.IsNullOrWhiteSpace(role))
-                throw new ArgumentNullException(nameof(role));
+                throw new InvalidRoleException(nameof(role));
 
             Id = id;
             UserName = userName;
