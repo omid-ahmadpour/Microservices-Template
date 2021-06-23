@@ -1,12 +1,19 @@
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NeoBus;
 using NeoBus.MessageBus.Models;
 using Slice.Services.Identity.Application.Commands.SignUp;
+using Slice.Services.Identity.Application.Services;
+using Slice.Services.Identity.Application.Services.Contracts;
+using Slice.Services.Identity.Core.Repositories;
+using Slice.Services.Identity.Infrastructure.Authentications;
+using Slice.Services.Identity.Infrastructure.Repositories;
 
 namespace Slice.Services.Identity.Web
 {
@@ -21,7 +28,15 @@ namespace Slice.Services.Identity.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddNeoBus();
+
             services.AddScoped<IRequestHandler<SignUpCommand, CommandResult>, SignUpCommandHandler>();
+
+            services.AddScoped<IPasswordService, PasswordService>();
+            services.AddScoped<IPasswordHasher<IPasswordService>, PasswordHasher<IPasswordService>>();
+
+            services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

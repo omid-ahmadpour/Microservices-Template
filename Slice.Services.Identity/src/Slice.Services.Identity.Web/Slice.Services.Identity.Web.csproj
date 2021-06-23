@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Slice.Services.Identity.Infrastructure\Slice.Services.Identity.Infrastructure.csproj" />
     <ProjectReference Include="..\Slice.Services.Identity.Application\Slice.Services.Identity.Application.csproj" />
   </ItemGroup>
 
