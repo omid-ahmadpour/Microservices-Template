@@ -12,4 +12,8 @@
     <PackageReference Include="NeoBus" Version="1.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Slice.Services.Identity.Core\Slice.Services.Identity.Core.csproj" />
+  </ItemGroup>
+
 </Project>
