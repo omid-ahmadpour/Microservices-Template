@@ -4,14 +4,14 @@ namespace Slice.Services.Identity.Web.Controllers.Requests
 {
     public class SignUpRequest
     {
-        public string UserName { get; }
+        public string UserName { get; set; }
 
-        public string Email { get; }
+        public string Email { get; set; }
 
-        public string Password { get; }
+        public string Password { get; set; }
 
-        public string Role { get; }
+        public string Role { get; set; }
 
-        public IEnumerable<string> Permissions { get; }
+        public IEnumerable<string> Permissions { get; set; }
     }
 }
