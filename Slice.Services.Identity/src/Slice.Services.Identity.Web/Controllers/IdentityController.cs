@@ -18,7 +18,7 @@ namespace Slice.Services.Identity.Web.Controllers
             _bus = bus ?? throw new ArgumentNullException(nameof(bus));
         }
 
-        [HttpPost()]
+        [HttpPost]
         public async Task<ActionResult> SignUpAsync([FromBody] SignUpRequest request)
         {
             var command = new SignUpCommand(Guid.Empty, request.UserName, request.Email, request.Password, request.Role, request.Permissions);
