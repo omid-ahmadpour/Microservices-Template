@@ -1,4 +1,4 @@
-﻿namespace Slice.Framework.Shared.Core.Exceptions
+﻿namespace Slice.Framework.Core.Exceptions
 {
     public class InvalidAggregateIdException : DomainException
     {

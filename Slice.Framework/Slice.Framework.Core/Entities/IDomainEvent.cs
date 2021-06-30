@@ -1,4 +1,4 @@
-﻿namespace Slice.Framework.Shared.Core.Entities
+﻿namespace Slice.Framework.Core.Entities
 {
     public interface IDomainEvent
     {

@@ -1,7 +1,7 @@
-﻿using Slice.Framework.Shared.Core.Exceptions;
+﻿using Slice.Framework.Core.Exceptions;
 using System;
 
-namespace Slice.Framework.Shared.Core.Entities
+namespace Slice.Framework.Core.Entities
 {
     public class AggregateId : IEquatable<AggregateId>
     {

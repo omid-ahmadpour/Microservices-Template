@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Slice.Framework.Shared.Core.Entities
+namespace Slice.Framework.Core.Entities
 {
     public class AggregateRoot
     {
