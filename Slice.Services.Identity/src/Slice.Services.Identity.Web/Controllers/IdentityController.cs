@@ -24,7 +24,13 @@ namespace Slice.Services.Identity.Web.Controllers
             var command = new SignUpCommand(Guid.Empty, request.UserName, request.Email, request.Password, request.Role, request.Permissions);
 
             var result = await _bus.SendCommandAsync(command);
-            return Ok(result);
+
+            if (result.Succeeded)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
         }
     }
 }

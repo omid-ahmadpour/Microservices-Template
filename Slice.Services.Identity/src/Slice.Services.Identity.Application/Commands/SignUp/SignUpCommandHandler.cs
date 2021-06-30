@@ -21,6 +21,8 @@ namespace Slice.Services.Identity.Application.Commands.SignUp
             var result = new CommandResult();
 
             await _identityService.SignUpAsync(request);
+
+            result.Succeeded = true;
             return result;
         }
     }
