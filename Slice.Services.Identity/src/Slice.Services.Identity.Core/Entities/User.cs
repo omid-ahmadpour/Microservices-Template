@@ -1,14 +1,14 @@
 ﻿using Slice.Framework.Core.Entities;
 using Slice.Services.Identity.Core.Exceptions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Slice.Services.Identity.Core.Entities
 {
-    public class User : AggregateRoot
+    public class User : AggregateRoot , IEntity
     {
-        public string UserName { get; set; }
+        public Guid Id { get; private set; }
+
+        public string UserName { get; private set; }
 
         public string Email { get; private set; }
 
@@ -18,15 +18,17 @@ namespace Slice.Services.Identity.Core.Entities
 
         public DateTime CreatedAt { get; private set; }
 
-        public IEnumerable<string> Permissions { get; private set; }
+        protected User()
+        {
+
+        }
 
         public User(Guid id,
             string userName,
             string email,
             string password,
             string role,
-            DateTime createAt,
-            IEnumerable<string> permissions = null)
+            DateTime createAt)
         {
             if (string.IsNullOrWhiteSpace(userName))
                 throw new InvalidUserNameException(nameof(userName));
@@ -46,7 +48,6 @@ namespace Slice.Services.Identity.Core.Entities
             Password = password;
             Role = role;
             CreatedAt = createAt;
-            Permissions = permissions ?? Enumerable.Empty<string>();
         }
     }
 }

@@ -12,6 +12,7 @@ using Slice.Services.Identity.Application.Commands.SignUp;
 using Slice.Services.Identity.Application.Services;
 using Slice.Services.Identity.Application.Services.Contracts;
 using Slice.Services.Identity.Core.Repositories;
+using Slice.Services.Identity.Infrastructure;
 using Slice.Services.Identity.Infrastructure.Authentications;
 using Slice.Services.Identity.Infrastructure.Repositories;
 
@@ -37,6 +38,8 @@ namespace Slice.Services.Identity.Web
 
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<IUserRepository, UserRepository>();
+
+            services.AddInfrastructure(Configuration);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

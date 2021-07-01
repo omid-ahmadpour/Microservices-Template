@@ -58,7 +58,7 @@ namespace Slice.Services.Identity.Application.Services
 
             var role = string.IsNullOrWhiteSpace(command.Role) ? "user" : command.Role.ToLowerInvariant();
             var password = _passwordService.Hash(command.Password);
-            user = new User(command.UserId, command.UserName, command.Email, password, role, DateTime.UtcNow, command.Permissions);
+            user = new User(command.UserId, command.UserName, command.Email, password, role, DateTime.UtcNow);
             await _userRepository.AddAsync(user);
 
             _logger.LogInformation($"Created an account for the user with id: {user.Id}.");
