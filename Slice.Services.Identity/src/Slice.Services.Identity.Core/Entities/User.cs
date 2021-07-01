@@ -1,4 +1,5 @@
-﻿using Slice.Services.Identity.Core.Exceptions;
+﻿using Slice.Framework.Core.Entities;
+using Slice.Services.Identity.Core.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;

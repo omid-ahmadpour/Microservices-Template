@@ -1,4 +1,6 @@
-﻿namespace Slice.Services.Identity.Core.Exceptions
+﻿using Slice.Framework.Core.Exceptions;
+
+namespace Slice.Services.Identity.Core.Exceptions
 {
     public class InvalidEmailException : DomainException
     {
