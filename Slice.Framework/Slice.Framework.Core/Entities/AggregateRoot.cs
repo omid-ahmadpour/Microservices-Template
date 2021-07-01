@@ -4,11 +4,9 @@ namespace Slice.Framework.Core.Entities
 {
     public class AggregateRoot
     {
-        private readonly List<IDomainEvent> _events = new List<IDomainEvent>();
+        private readonly List<IDomainEvent> _events = new();
 
         public IEnumerable<IDomainEvent> Events => _events;
-
-        public AggregateId Id { get; protected set; }
 
         public int Version { get; protected set; }
 
